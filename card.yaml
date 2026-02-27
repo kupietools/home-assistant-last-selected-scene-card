@@ -1,0 +1,8 @@
+type: markdown
+content: |
+  ### Last Scene Selected
+  {{ states.sensor.last_scene_selected.state }}
+style: |
+  ha-card {
+    padding: 16px;
+  }
