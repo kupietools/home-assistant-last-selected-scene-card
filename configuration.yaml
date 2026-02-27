@@ -1,0 +1,14 @@
+template:
+  - sensor:
+      - name: "Last Scene Selected"
+        state: >
+          {% if states.input_text.last_scene_helper.state %}
+            {{ state_attr('scene.' + states.input_text.last_scene_helper.state, 'friendly_name') }}
+          {% else %}
+            No Scene Selected
+          {% endif %}
+
+input_text:
+  last_scene_helper:
+    name: Last Scene Selected
+    initial: No Scene Selected
