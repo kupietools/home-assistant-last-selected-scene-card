@@ -1,0 +1,13 @@
+- alias: Store Last Scene
+  trigger:
+    - platform: event
+      event_type: call_service
+      event_data:
+        domain: scene
+        service: turn_on
+  action:
+    - service: input_text.set_value
+      target:
+        entity_id: input_text.last_scene_helper
+      data:
+        value: "{{ trigger.event.data.service_data.entity_id | regex_replace('scene.', '') }}"
